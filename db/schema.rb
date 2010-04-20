@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20100420223732) do
     t.text     "description"
     t.string   "reference"
     t.integer  "seat_id"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
