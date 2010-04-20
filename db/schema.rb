@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20100420220840) do
     t.string   "code"
     t.string   "image"
     t.string   "party_code"
+    t.integer  "seat_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
