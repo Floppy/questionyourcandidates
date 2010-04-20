@@ -6,6 +6,7 @@ class SeatsController < ApplicationController
   def show
     @seat = Seat.find_by_code params[:id]
     raise ActiveRecord::RecordNotFound unless @seat
+    @events = @seat.events
   end
 
 end

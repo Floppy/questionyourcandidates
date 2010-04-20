@@ -1,3 +1,13 @@
 <h1><%=h @seat.name %></h1>
 
 See candidate details on <%= link_to "YourNextMP", "http://www.yournextmp.com/seats/#{@seat.code}" %>
+
+<h2>Events</h2>
+<ul>
+  <% @events.each do |event| -%>
+    <li><%= link_to h(event.title), seat_event_path(@seat, event) %></li>
+  <% end -%>
+</ul>
+
+<%= link_to "Add an event", new_seat_event_path(@seat) %>
+

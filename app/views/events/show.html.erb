@@ -1,0 +1,22 @@
+<h1><%=h @event.title %></h1>
+
+<p class="when">
+  <%= @event.starting_at %>
+</p>
+
+<p class="where">
+  <%=h @event.location %>
+</p>
+
+<p class="description">
+  <%=h @event.description %>
+</p>
+
+<p class="reference">
+  <%=h @event.reference %>
+</p>
+
+
+<%= link_to "Edit this event", edit_seat_event_path(@seat, @event) %>
+<br/>
+<%= link_to "All events in #{h(@seat.name)}", @seat %>
