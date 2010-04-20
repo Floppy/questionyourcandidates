@@ -5,9 +5,10 @@ See candidate details on <%= link_to "YourNextMP", "http://www.yournextmp.com/se
 <h2>Events</h2>
 <ul>
   <% @events.each do |event| -%>
-    <li><%= link_to h(event.title), seat_event_path(@seat, event) %></li>
+    <li><%= link_to "#{h(event.title)} (#{event.starting_at.to_date})", seat_event_path(@seat, event) %></li>
   <% end -%>
 </ul>
 
 <%= link_to "Add an event", new_seat_event_path(@seat) %>
-
+<br/>
+<%= link_to "All seats", seats_path %>
