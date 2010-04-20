@@ -6,7 +6,7 @@ class CreateCandidates < ActiveRecord::Migration
       t.string :code
       t.string :image
       t.string :party_code
-      t.integer :seat_id
+      t.references :seat
       t.timestamps
     end
   end
