@@ -1,20 +1,43 @@
 <h1><%=h @event.title %></h1>
 
-<p class="when">
+<div class="when">
   <%= @event.starting_at %>
-</p>
+</div>
 
-<p class="where">
+<div class="where">
+  <script type="text/javascript">
+    google.load("maps", "2");
+    // Call this function when the page has been loaded
+    function initialize() {
+      var map = new google.maps.Map2(document.getElementById("map"));
+      var geocoder = new GClientGeocoder();
+      var address = "<%=h @event.location.delete("\n\r") %>";
+      geocoder.getLatLng(
+        address,
+        function(point) {
+          if (!point) {
+            alert(address + " not found");
+          } else {
+            map.setCenter(point, 13);
+            var marker = new GMarker(point);
+            map.addOverlay(marker);
+          }
+        }
+      );
+    }
+    google.setOnLoadCallback(initialize);
+  </script>
   <%=h @event.location %>
-</p>
+  <div id="map" style="width: 500px; height: 300px"></div>
+</div>
 
-<p class="description">
+<div class="description">
   <%=h @event.description %>
-</p>
+</div>
 
-<p class="reference">
+<div class="reference">
   <%=h @event.reference %>
-</p>
+</div>
 
 
 <%= link_to "Edit this event", edit_seat_event_path(@seat, @event) %>
