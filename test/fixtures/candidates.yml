@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  party: MyString
+  code: MyString
+  image: MyString
+  party_code: MyString
+
+two:
+  name: MyString
+  party: MyString
+  code: MyString
+  image: MyString
+  party_code: MyString
