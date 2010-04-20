@@ -1,0 +1,6 @@
+<h1>All Seats</h1>
+<ul>
+  <% @seats.each do |seat| -%>
+    <li><%= link_to seat.name, seat_path(seat) %></li>
+  <% end -%>
+</ul>
