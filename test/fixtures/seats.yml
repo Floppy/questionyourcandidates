@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+horsham:
+  name: Horsham
+  code: horsham
+
+south_west_surrey:
+  name: South West Surrey
+  code: south_west_surrey
