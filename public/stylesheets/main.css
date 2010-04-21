@@ -1,0 +1,56 @@
+body {
+  background: #EEEEEE;
+  width: 960px;
+  margin: 10px auto;
+  padding: 0px;
+  font-family: Verdana, Arial, sans;
+}
+
+div#header {
+  background: black;
+  padding: 10px;
+  -moz-border-radius-topleft:10px;
+  -moz-border-radius-topright:10px;
+}
+
+div#header h1 {
+  color: white;  
+  margin: 0px 0px;
+}
+
+div#header h2 {
+  color: white;  
+  margin: 0px 0px;
+  font-size: 1.0em;
+}
+
+div#header div.search {
+  float:right;
+}
+
+div#header div.search form * {
+  font-size: 0.7em;
+}
+
+div#content {
+  background: white;
+  padding: 0px 10px;
+  min-height: 300px;
+}
+
+div#content h1 {
+  margin: 0px 0px;
+}
+
+div#footer {
+  color: white;
+  background: black;
+  padding: 10px;
+  -moz-border-radius-bottomleft:10px;
+  -moz-border-radius-bottomright:10px;
+  font-size: 0.7em;
+}
+
+div#footer a {
+  color: white;
+}

@@ -1,8 +1,20 @@
 <html>
   <head>
+    <title>QuestionYourCandidates</title>
     <script type="text/javascript" src="http://www.google.com/jsapi?key=<%= APP_CONFIG[:gmaps_key] %>"></script>
+    <%= stylesheet_link_tag "main" %>
   </head>
   <body>
-    <%= yield %>
+    <div id="header">
+      <%= render :partial => "main/search_form" %>
+      <h1>QuestionYourCandidates</h1>
+      <h2>Listing election debates in your area</h2>
+    </div>
+    <div id="content">
+      <%= yield %>
+    </div>
+    <div id="footer">
+      Made by <%= link_to "James Smith", "http://www.floppy.org.uk" %>, using data from <%= link_to "YourNextMP", "http://yournextmp.com"%> and <%=link_to "TheyWorkForYou", "http://theyworkforyou.com" %>. Code available on <%= link_to "GitHub", "http://github.com/Floppy/questionyourcandidates" %>.
+    </div>
   </body>
 </html>
