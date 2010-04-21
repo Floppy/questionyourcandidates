@@ -1,6 +1,13 @@
 <div class="search">
   <% form_tag "/search" do %>
-    <%= text_field :search, :postcode, :value => "postcode" %>
+    <%= text_field :search, :postcode, :value => "enter postcode", :size => 15 %>
     <%= submit_tag "Search" %>
   <% end %>
+  <script>
+    $('search_postcode').onfocus = function() {
+      if (this.value == "enter postcode") {
+        this.clear();
+      }
+    }
+  </script>
 </div>
