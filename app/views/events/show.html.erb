@@ -41,6 +41,7 @@
 <% if @event.candidates.empty? -%>
   <p id="attending">No candidates are confirmed yet.</p>
 <% else -%>
+  <p>Note: this list may be incomplete.</p>
   <table id="attending">
     <% @event.candidates.each do |c| -%>
       <tr> 

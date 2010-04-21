@@ -17,6 +17,7 @@ Rails::Initializer.run do |config|
   config.gem 'validates_timeliness'
   config.gem 'ezcrypto'
   config.gem 'hoptoad_notifier'
+  config.gem 'vpim'
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named

@@ -1,0 +1,14 @@
+<%
+  cal = Vpim::Icalendar.create2
+  @events.each do |event|
+    cal.add_event do |e|
+      e.dtstart       event.starting_at
+      e.dtend         event.starting_at + 2.hours
+      e.summary       event.title
+      e.url           seat_event_url(@seat, event, :only_path => false)
+      e.created       event.created_at
+      e.lastmod       event.updated_at
+    end
+  end
+-%>
+<%= cal.encode -%>
