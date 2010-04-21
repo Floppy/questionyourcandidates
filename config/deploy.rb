@@ -2,7 +2,7 @@ set :application, "questionyourcandidates"
 set :repository,  "git@github.com:Floppy/questionyourcandidates.git"
 
 set :scm, :git
-set :branch, 'develop'
+set :branch, 'stable'
 
 role :web, "questionyourcandidates.org.uk"
 role :app, "questionyourcandidates.org.uk"
