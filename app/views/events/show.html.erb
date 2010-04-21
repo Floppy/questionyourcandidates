@@ -2,8 +2,6 @@
   <%= link_to "Home", "/" %> > <%= link_to "All Seats", seats_path %> > <%= link_to @seat.name, @seat %> > <%=h @event.title %>
 </div>
 
-<h1><%=h @event.title %></h1>
-
 <div id="map" style="width: 300px; height: 300px"></div>
 <script type="text/javascript">
   google.load("maps", "2");
@@ -27,6 +25,8 @@
   }
   google.setOnLoadCallback(initialize);
 </script>
+
+<h1><%=h @event.title %></h1>
 
 <p class="whenandwhere">
   When: <%= @event.starting_at.strftime("%I:%M%p, %B %d") %>
