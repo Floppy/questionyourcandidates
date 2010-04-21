@@ -35,6 +35,10 @@
 
 <h1><%=h @seat.name %></h1>
 
+<ul class="formats">
+  <li><%= link_to image_tag('calendar.png'), seat_url(@seat, :format => :icalendar) %> <%= link_to "iCalendar", seat_url(@seat, :format => :icalendar) %></li>
+  <li><%= link_to image_tag('feed.png'), seat_url(@seat, :format => :atom) %> <%= link_to "Atom feed", seat_url(@seat, :format => :atom) %></li>
+</ul>
 <h2>Events</h2>
 <ul>
   <% @events.each do |event| -%>

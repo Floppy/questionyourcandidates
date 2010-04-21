@@ -118,3 +118,20 @@ div#license {
 div#content h1 {
   margin-top: 10px;
 }
+
+ul.formats {
+  float: right;
+  font-size: 0.7em;
+  margin-right: 10px;
+  list-style-type: none;
+}
+
+h2 {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+a img {
+  border: 0px;
+  vertical-align: top;
+}
