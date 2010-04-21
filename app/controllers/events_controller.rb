@@ -22,8 +22,11 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update_attributes(params[:event])
-    redirect_to seat_event_path(@seat, @event)
+    if @event.update_attributes(params[:event])
+      redirect_to seat_event_path(@seat, @event)
+    else
+      render :action => "edit"
+    end
   end
 
   protected
