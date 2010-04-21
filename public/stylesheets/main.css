@@ -114,3 +114,7 @@ div.flash {
 div#license {
   float: right;
 }
+
+div#content h1 {
+  margin-top: 10px;
+}
