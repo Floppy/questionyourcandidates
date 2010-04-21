@@ -11,7 +11,11 @@ class EventsController < ApplicationController
 
   def create
     @event = @seat.events.create(params[:event])
-    redirect_to seat_event_path(@seat, @event)
+    if @event.valid?
+      redirect_to seat_event_path(@seat, @event)
+    else
+      render :action => "new"
+    end
   end
 
   def edit

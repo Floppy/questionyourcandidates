@@ -1,4 +1,5 @@
 <% form_for [@seat, @event] do |f| %>
+  <%= f.error_messages %>
   <table id="event_form_table">
     <tr>
       <td><%= f.label :title %>:</td><td><%= f.text_field :title %></td>
@@ -13,7 +14,7 @@
       <td><%= f.label :description %>:</td><td><%= f.text_area :description, :rows => 5 %></td>
     </tr>
     <tr>
-      <td><%= f.label :reference %>:</td><td><%= f.text_field :reference %> (a url or something where you found the details)</td>
+      <td><%= f.label :reference %>:</td><td><%= f.text_field :reference %> (where you found the details)</td>
     </tr>
     <tr>
       <td></td><td><%= f.submit %></td>

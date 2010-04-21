@@ -79,3 +79,12 @@ div#footer {
 div#footer a {
   color: white;
 }
+
+.fieldWithErrors {
+  display:inline;
+}
+
+.fieldWithErrors input, .fieldWithErrors textarea {
+  border: 3px solid red;
+}
+

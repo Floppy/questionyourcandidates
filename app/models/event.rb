@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   has_many :candidates, :through => :attendances
 
   validates_datetime :starting_at
-  validates_presence_of :location, :description, :reference, :title
+  validates_presence_of :location, :title
 
   attr_accessible :starting_at, :location, :description, :reference, :title
 
