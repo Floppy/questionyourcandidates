@@ -38,6 +38,22 @@
   <%=h @event.description %>
 </p>
 
+<h2>Who will be there?</h2>
+
+<% if @event.candidates.empty? -%>
+  <p id="attending">No candidates are confirmed yet.</p>
+<% else -%>
+  <table id="attending">
+    <% @event.candidates.each do |c| -%>
+      <tr> 
+        <td class="image"><%= image_tag(c.image) if c.image %></td>
+        <td class="name"><%= link_to h(c.name), "http://yournextmp.com/candidates/#{c.code}" %></td>
+        <td class="party"><%= link_to h(c.party), "http://yournextmp.com/parties/#{c.party_code}" %></td>
+      </tr>
+    <% end -%>
+  </table>
+<% end -%>
+
 <p>
   Something wrong here? <%= link_to "Edit this event", edit_seat_event_path(@seat, @event) %>.
 </p>

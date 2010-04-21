@@ -51,6 +51,14 @@ div#map {
   border: 3px solid black;
 }
 
+table#attending td.image {
+  text-align: center;
+}
+
+table#attending td.name, table#attending td.party {
+  padding: 0px 10px;
+}
+
 p.reference {
   font-size: 0.7em;
 }
