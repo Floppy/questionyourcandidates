@@ -17,6 +17,9 @@
       <td><%= f.label :reference %>:</td><td><%= f.text_field :reference %> (where you found the details)</td>
     </tr>
     <tr>
+      <td><%= @event.captcha.task %> =</td><td><%= f.text_field :captcha_solution %><%= f.hidden_field :captcha_secret %> (so we know you're human)</td>
+    </tr>
+    <tr>
       <td></td><td><%= f.submit %></td>
     </tr>
   </table>

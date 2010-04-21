@@ -6,6 +6,8 @@ class Event < ActiveRecord::Base
   validates_datetime :starting_at
   validates_presence_of :location, :title
 
-  attr_accessible :starting_at, :location, :description, :reference, :title
+  attr_accessible :starting_at, :location, :description, :reference, :title, :captcha_solution, :captcha_secret
+
+  has_captcha
 
 end
