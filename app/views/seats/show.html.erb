@@ -2,6 +2,37 @@
   <%= link_to "Home", "/" %> > <%= link_to "All Seats", seats_path %> > <%=h @seat.name %>
 </div>
 
+<div id="map" style="width: 300px; height: 300px"></div>
+<script type="text/javascript">
+  google.load("maps", "2");
+  // Call this function when the page has been loaded
+  function initialize() {
+    var map = new google.maps.Map2(document.getElementById("map"));
+    var sw = new GLatLng(<%= @seat.min_lat%>, <%= @seat.min_lon%>);  
+    var ne = new GLatLng(<%= @seat.max_lat%>, <%= @seat.max_lon%>);  
+    var bounds = new GLatLngBounds(sw, ne);  
+    map.setCenter(bounds.getCenter(), map.getBoundsZoomLevel(bounds));
+    var geocoder = new GClientGeocoder();
+    <% @seat.events.each_index do |i| %>
+      <% event = @seat.events[i] %>
+      var address<%=i%> = "<%=h event.location.delete("\n\r") %>";
+      geocoder.getLatLng(
+        address<%=i%>,
+        function(point) {
+          if (point) {
+            var marker = new GMarker(point);
+            GEvent.addListener(marker, "click", function() {
+              document.location = "<%= seat_event_path @seat, event %>";
+            });
+            map.addOverlay(marker);
+          }
+        }
+      );
+    <% end -%>
+  }
+  google.setOnLoadCallback(initialize);
+</script>
+
 <h1><%=h @seat.name %></h1>
 
 <h2>Events</h2>

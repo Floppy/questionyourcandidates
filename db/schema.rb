@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100421082510) do
+ActiveRecord::Schema.define(:version => 20100421215517) do
 
   create_table "attendances", :force => true do |t|
     t.integer  "event_id"
@@ -45,6 +45,10 @@ ActiveRecord::Schema.define(:version => 20100421082510) do
     t.string   "code"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.float    "min_lat"
+    t.float    "max_lat"
+    t.float    "min_lon"
+    t.float    "max_lon"
   end
 
 end
