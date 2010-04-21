@@ -4,6 +4,7 @@ class SeatsController < ApplicationController
   end
 
   def show
+    @has_feed = true
     @seat = Seat.find_by_code params[:id]    
     raise ActiveRecord::RecordNotFound unless @seat  
     @events = @seat.events

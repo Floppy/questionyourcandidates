@@ -1,5 +1,12 @@
 class MainController < ApplicationController
   def index  
+    @has_feed = true
+    respond_to do |format|
+      format.html
+      format.atom {
+        @events = Event.find :all, :order => :updated_at, :limit => 20
+      }
+    end
   end
 
   def search
