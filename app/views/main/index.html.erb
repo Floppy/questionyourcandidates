@@ -1,7 +1,13 @@
 <p>
 Getting leaflets through the door is all very well, but sometimes you want to see how your prospective MPs handle themselves when questioned by the public. This site lists public meetings where you can go and do exactly that. Just enter your postcode and we'll show you events near you.
 </p>
-<%= render :partial => "search_form" %>
+<div class="mainsearch">
+  <%= render :partial => "search_form" %>
+  <p>
+    Or, <%= link_to "browse the full list of seats", seats_path%>.
+  </p>
+</div>
+<h2>About this site</h2>
 <p>
-Alternatively, you can <%= link_to "browse the full list of seats", seats_path%>.
+All content on this site is licensed under a <a href="http://creativecommons.org/licenses/by-sa/2.0/uk/">Creative Commons Attribution-Share Alike</a> license. By adding content, you agree that it can be used under this license.
 </p>
