@@ -11,6 +11,8 @@ div#header {
   padding: 10px;
   -moz-border-radius-topleft:10px;
   -moz-border-radius-topright:10px;
+  -webkit-border-top-left-radius:10px;
+  -webkit-border-top-right-radius:10px;
 }
 
 div#header h1 {
@@ -73,6 +75,8 @@ div#footer {
   padding: 10px;
   -moz-border-radius-bottomleft:10px;
   -moz-border-radius-bottomright:10px;
+  -webkit-border-bottom-left-radius:10px;
+  -webkit-border-bottom-right-radius:10px;
   font-size: 0.7em;
 }
 
@@ -88,3 +92,12 @@ div#footer a {
   border: 3px solid red;
 }
 
+div.flash {
+  width: 75%;
+  background: #DDDDDD;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  padding: 10px;
+  margin: 0px auto;
+  text-align: center;
+}

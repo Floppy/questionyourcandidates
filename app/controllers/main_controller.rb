@@ -7,9 +7,11 @@ class MainController < ApplicationController
                               {'postcode'=>params['search']['postcode'], 'future'=>'1', 'key' => APP_CONFIG[:twfy_key]})
     json = JSON.parse(res.body)
     if (json['name'])
+      flash[:notice] = nil
       code = json['name'].downcase.gsub(/[^[:alpha:]]/, ' ').squeeze.gsub(" ","_")
       redirect_to :controller => "seats", :action => "show", :id => code
     else
+      flash[:notice] = "Sorry, we couldn't find a constituency for that postcode!"
       render :action => "index"
     end
   end

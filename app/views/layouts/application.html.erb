@@ -6,11 +6,16 @@
   </head>
   <body>
     <div id="header">
-      <%= render :partial => "main/search_form" %>
+      <%= render :partial => "main/search_form" unless @controller.is_a? MainController %>
       <h1>QuestionYourCandidates</h1>
       <h2>Listing election debates in your area</h2>
     </div>
     <div id="content">
+      <% if flash[:notice] -%>
+        <div class="flash">
+          <%=h flash[:notice]%>
+        </div>
+      <% end -%>
       <%= yield %>
       <div style="clear:both"></div>
     </div>
