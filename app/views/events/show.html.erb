@@ -1,45 +1,47 @@
+<div id="breadcrumbs">
+  <%= link_to "Home", "/" %> > <%= link_to "All Seats", seats_path %> > <%= link_to @seat.name, @seat %> > <%=h @event.title %>
+</div>
+
 <h1><%=h @event.title %></h1>
 
-<div class="when">
-  <%= @event.starting_at %>
-</div>
-
-<div class="where">
-  <script type="text/javascript">
-    google.load("maps", "2");
-    // Call this function when the page has been loaded
-    function initialize() {
-      var map = new google.maps.Map2(document.getElementById("map"));
-      var geocoder = new GClientGeocoder();
-      var address = "<%=h @event.location.delete("\n\r") %>";
-      geocoder.getLatLng(
-        address,
-        function(point) {
-          if (!point) {
-            alert(address + " not found");
-          } else {
-            map.setCenter(point, 13);
-            var marker = new GMarker(point);
-            map.addOverlay(marker);
-          }
+<div id="map" style="width: 300px; height: 300px"></div>
+<script type="text/javascript">
+  google.load("maps", "2");
+  // Call this function when the page has been loaded
+  function initialize() {
+    var map = new google.maps.Map2(document.getElementById("map"));
+    var geocoder = new GClientGeocoder();
+    var address = "<%=h @event.location.delete("\n\r") %>";
+    geocoder.getLatLng(
+      address,
+      function(point) {
+        if (!point) {
+          alert(address + " not found");
+        } else {
+          map.setCenter(point, 13);
+          var marker = new GMarker(point);
+          map.addOverlay(marker);
         }
-      );
-    }
-    google.setOnLoadCallback(initialize);
-  </script>
-  <%=h @event.location %>
-  <div id="map" style="width: 500px; height: 300px"></div>
-</div>
+      }
+    );
+  }
+  google.setOnLoadCallback(initialize);
+</script>
 
-<div class="description">
+<p class="whenandwhere">
+  When: <%= @event.starting_at.strftime("%I:%M%p, %B %d") %>
+  <br/>
+  Where: <%=h @event.location %>
+</p>
+
+<p class="description">
   <%=h @event.description %>
-</div>
+</p>
 
-<div class="reference">
-  <%=h @event.reference %>
-</div>
+<p>
+  Something wrong here? <%= link_to "Edit this event", edit_seat_event_path(@seat, @event) %>.
+</p>
 
-
-<%= link_to "Edit this event", edit_seat_event_path(@seat, @event) %>
-<br/>
-<%= link_to "All events in #{h(@seat.name)}", @seat %>
+<p class="reference">
+  Source: <%=h @event.reference %>
+</p>

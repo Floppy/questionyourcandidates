@@ -34,12 +34,29 @@ div#header div.search form * {
 
 div#content {
   background: white;
-  padding: 0px 10px;
+  padding: 5px 10px;
   min-height: 300px;
 }
 
 div#content h1 {
   margin: 0px 0px;
+}
+
+div#breadcrumbs {
+  font-size: 0.7em;
+}
+
+div#map {
+  float:right;
+  border: 3px solid black;
+}
+
+p.reference {
+  font-size: 0.7em;
+}
+
+table#event_form_table td {
+  vertical-align: top;
 }
 
 div#footer {

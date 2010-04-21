@@ -1,14 +1,21 @@
-<h1><%=h @seat.name %></h1>
+<div id="breadcrumbs">
+  <%= link_to "Home", "/" %> > <%= link_to "All Seats", seats_path %> > <%=h @seat.name %>
+</div>
 
-See candidate details on <%= link_to "YourNextMP", "http://www.yournextmp.com/seats/#{@seat.code}" %>
+<h1><%=h @seat.name %></h1>
 
 <h2>Events</h2>
 <ul>
   <% @events.each do |event| -%>
-    <li><%= link_to "#{h(event.title)} (#{event.starting_at.to_date})", seat_event_path(@seat, event) %></li>
+    <li><%= event.starting_at.to_date.to_s(:short) %>: <%= link_to "#{h(event.title)}", seat_event_path(@seat, event) %></li>
   <% end -%>
 </ul>
 
-<%= link_to "Add an event", new_seat_event_path(@seat) %>
-<br/>
-<%= link_to "All seats", seats_path %>
+We need your help! If you know of something not listed here, please <%= link_to "add an event", new_seat_event_path(@seat) %>.
+
+<h2>Links</h2>
+<ul>
+  <li>See details of your candidates on <%= link_to "YourNextMP", "http://www.yournextmp.com/seats/#{@seat.code}" %>.</li>
+  <li>View election leaflets on <%= link_to "The Straight Choice", "http://www.thestraightchoice.org/leaflets.php?n=#{@seat.code}" %>.</li>
+</ul>
+

@@ -1,3 +1,7 @@
+<div id="breadcrumbs">
+  <%= link_to "Home", "/" %> > <%= link_to "All Seats", seats_path %> > <%= link_to @seat.name, @seat %> > <%=link_to h(@event.title), [@seat, @event] %>
+</div>
+
 <h1>Edit "<%=h @event.title %>"</h1>
 
 <%= render :partial => "form" %>

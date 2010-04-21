@@ -1,15 +1,22 @@
 <% form_for [@seat, @event] do |f| %>
-
-  <%= f.label :title %> <%= f.text_field :title %> <br/>
-  
-  <%= f.label :starting_at %> <%= f.datetime_select :starting_at %> <br/>
-
-  <%= f.label :location %> <%= f.text_area :location %> <br/>
-
-  <%= f.label :description %> <%= f.text_area :description %> <br/>
-
-  <%= f.label :reference %> <%= f.text_field :reference %> <br/>
-
-  <%= f.submit %>
-
+  <table id="event_form_table">
+    <tr>
+      <td><%= f.label :title %>:</td><td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :starting_at, "When" %>:</td><td><%= f.datetime_select :starting_at %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :location, "Where" %>:</td><td><%= f.text_area :location, :rows => 5 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %>:</td><td><%= f.text_area :description, :rows => 5 %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :reference %>:</td><td><%= f.text_field :reference %> (a url or something where you found the details)</td>
+    </tr>
+    <tr>
+      <td></td><td><%= f.submit %></td>
+    </tr>
+  </table>
 <% end %>
