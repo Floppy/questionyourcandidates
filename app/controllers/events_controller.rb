@@ -23,6 +23,12 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_attributes(params[:event])
+      params[:candidates].each_pair do |k,v|
+        c = Candidate.find_by_code(k.to_s)
+        if c
+          v=="1" ? @event.add_candidate(c) : @event.remove_candidate(c)
+        end
+      end
       redirect_to seat_event_path(@seat, @event)
     else
       render :action => "edit"

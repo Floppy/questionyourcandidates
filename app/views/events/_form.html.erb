@@ -17,6 +17,14 @@
       <td><%= f.label :reference %>:</td><td><%= f.text_field :reference %> (where you found the details)</td>
     </tr>
     <tr>
+      <td>Attendees:</td>
+      <td>
+        <% @seat.candidates.each do |c| -%>
+          <%= check_box 'candidates', c.code, :checked => @event.candidates.include?(c) %><%=h c.name %> (<%=h c.party %>)<br/>
+        <% end -%>
+      </td>
+    </tr>
+    <tr>
       <td><%= @event.captcha.task %> =</td><td><%= f.text_field :captcha_solution %><%= f.hidden_field :captcha_secret %> (so we know you're human)</td>
     </tr>
     <tr>

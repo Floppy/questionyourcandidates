@@ -10,4 +10,12 @@ class Event < ActiveRecord::Base
 
   has_captcha
 
+  def add_candidate(c)
+    candidates << c unless candidates.include? c
+  end
+
+  def remove_candidate(c)
+    candidates.delete c
+  end
+
 end
