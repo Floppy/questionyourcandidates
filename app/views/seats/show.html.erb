@@ -16,6 +16,7 @@ We need your help! If you know of something not listed here, please <%= link_to 
 <h2>Links</h2>
 <ul>
   <li>See details of your candidates on <%= link_to "YourNextMP", "http://www.yournextmp.com/seats/#{@seat.code}" %>.</li>
-  <li>View election leaflets on <%= link_to "The Straight Choice", "http://www.thestraightchoice.org/leaflets.php?n=#{@seat.code}" %>.</li>
+  <li>View local election leaflets on <%= link_to "The Straight Choice", "http://www.thestraightchoice.org/leaflets.php?n=#{@seat.code}" %>.</li>
+  <li>Get more involved in your area with <%= link_to "Democracy Club", "http://www.democracyclub.org.uk/constituencies/#{@seat.code.gsub('_','-')}/" %>.</li>
 </ul>
 
