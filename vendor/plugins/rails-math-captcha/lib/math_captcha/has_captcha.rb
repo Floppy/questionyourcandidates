@@ -29,7 +29,7 @@ module MathCaptcha
         validates_presence_of :captcha_solution, 
           :on => :create, :message => "can't be blank", 
           :unless => Proc.new {|record| record.skip_captcha? }
-        validate_on_create :must_solve_captcha,
+        validate :must_solve_captcha,
           :unless => Proc.new {|record| record.skip_captcha? }
       end
       def skip_captcha!
