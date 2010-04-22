@@ -15,7 +15,8 @@ class MainController < ApplicationController
     json = JSON.parse(res.body)
     if (json['name'])
       flash[:notice] = nil
-      code = json['name'].downcase.gsub(/[^[:alpha:]]/, ' ').squeeze.gsub(" ","_")
+      code = json['name'].downcase.gsub(/[^[:alpha:]]/, ' ').squeeze(" ").gsub(" ","_")
+      raise code
       redirect_to :controller => "seats", :action => "show", :id => code
     else
       flash[:notice] = "Sorry, we couldn't find a constituency for that postcode!"
