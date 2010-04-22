@@ -5,8 +5,9 @@ xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
   xml.title "QuestionYourCandidates: Updates for #{@seat.name}"
   xml.link "href" => seat_url(@seat, :only_path => false)
   xml.link "href" => seat_url(@seat, :only_path => false, :format => :atom), "rel" => "self"
-  xml.updated @events.first.updated_at.xmlschema
-  xml.id "tag:questionyourcandidates.org.uk,#{@events.first.updated_at.strftime("%Y-%m-%d")}:#{@seat.code}"
+  updated = @events.empty? ? @seat.updated_at : @events.first.updated_at
+  xml.updated updated.xmlschema
+  xml.id "tag:questionyourcandidates.org.uk,#{updated.strftime("%Y-%m-%d")}:#{@seat.code}"
   
   @events.each do |event|
 
